@@ -4,627 +4,212 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tural Pashayev — Senior Cyber Defense Engineer</title>
-<meta name="description" content="Senior Cyber Defense Engineer specializing in Insider Threat, Detection Engineering, Security Automation, and Applied ML.">
+<meta name="description" content="Senior Cyber Defense Engineer working at the intersection of AI, ML, and cybersecurity — applying LLMs and machine learning to insider threat detection and SOC automation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0f1a;
-    --bg-card: #111827;
-    --bg-card-hover: #1a2332;
-    --accent: #3b82f6;
-    --accent-dim: #1e3a5f;
-    --text: #e2e8f0;
-    --text-dim: #94a3b8;
-    --text-bright: #f8fafc;
-    --border: #1e293b;
-    --green: #10b981;
-    --font-body: 'DM Sans', sans-serif;
-    --font-mono: 'Space Mono', monospace;
+    --bg: #ffffff;
+    --bg-soft: #f7f8fa;
+    --accent: #1f5fad;
+    --accent-soft: #e8f0fa;
+    --text: #2a2a2a;
+    --text-dim: #5a6470;
+    --text-light: #8b95a1;
+    --border: #e3e6eb;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Crimson Pro', Georgia, serif;
   }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  header.site-header { background: rgba(255,255,255,0.95); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  .site-title { font-weight: 600; font-size: 1rem; }
+  .site-title a { color: var(--text); }
+  .site-title a:hover { text-decoration: none; color: var(--accent); }
 
-  html { scroll-behavior: smooth; }
+  .hero { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 3rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+  .avatar { width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #2a7fd1); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 4rem; font-weight: 600; box-shadow: 0 8px 24px rgba(31, 95, 173, 0.15); font-family: var(--font-serif); }
+  .hero-info h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: -0.5px; }
+  .hero-info .role { font-size: 1.15rem; color: var(--text-dim); margin-bottom: 0.15rem; font-weight: 500; }
+  .hero-info .company { font-size: 1rem; color: var(--accent); margin-bottom: 1.25rem; font-weight: 500; }
+  .social-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .social-links a { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; color: var(--text-dim); transition: all 0.2s; text-decoration: none; }
+  .social-links a:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-2px); }
+  .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+  .hero-bio { font-family: var(--font-serif); font-size: 1.15rem; color: var(--text); line-height: 1.65; max-width: 680px; }
 
-  body {
-    font-family: var(--font-body);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
+  .main-grid { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+  .sidebar { position: sticky; top: 100px; }
+  .sidebar-block { margin-bottom: 2.5rem; }
+  .sidebar-block h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+  .sidebar-block ul { list-style: none; }
+  .sidebar-block li { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+  .sidebar-block li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; }
+  .sidebar-block .edu-item { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1rem; padding-left: 0; }
+  .sidebar-block .edu-item::before { content: none; }
+  .sidebar-block .edu-degree { color: var(--text); font-weight: 500; display: block; margin-bottom: 0.15rem; }
+  .sidebar-block .edu-school { font-style: italic; }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(10, 15, 26, 0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-  }
-  nav .nav-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-  }
-  nav .logo {
-    font-family: var(--font-mono); font-weight: 700; font-size: 1rem;
-    color: var(--accent); text-decoration: none; letter-spacing: -0.5px;
-  }
-  nav .logo span { color: var(--text-dim); }
-  nav ul { list-style: none; display: flex; gap: 2rem; }
-  nav a {
-    color: var(--text-dim); text-decoration: none; font-size: 0.875rem;
-    font-weight: 500; transition: color 0.2s;
-  }
-  nav a:hover { color: var(--text-bright); }
+  .content section { margin-bottom: 3.5rem; }
+  .content h2 { font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+  .content h2 .emoji { font-size: 1.3rem; }
+  .content p { font-family: var(--font-serif); font-size: 1.1rem; color: var(--text); line-height: 1.75; margin-bottom: 1rem; }
+  .content p strong { font-weight: 600; }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    padding: 6rem 2rem 4rem;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59,130,246,0.12), transparent),
-      var(--bg);
-  }
-  .hero-inner {
-    max-width: 1100px; width: 100%;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-  }
-  .hero-text h1 {
-    font-size: 3.2rem; font-weight: 700; line-height: 1.15;
-    color: var(--text-bright); margin-bottom: 0.5rem;
-  }
-  .hero-text h1 span { color: var(--accent); }
-  .hero-text .subtitle {
-    font-family: var(--font-mono); font-size: 0.95rem;
-    color: var(--accent); margin-bottom: 1.5rem; letter-spacing: 0.5px;
-  }
-  .hero-text p {
-    color: var(--text-dim); font-size: 1.05rem; margin-bottom: 2rem; max-width: 500px;
-  }
-  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .hero-links a {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.65rem 1.5rem; border-radius: 8px; font-size: 0.9rem;
-    font-weight: 600; text-decoration: none; transition: all 0.25s;
-  }
-  .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
-  .btn-outline {
-    border: 1px solid var(--border); color: var(--text);
-    background: transparent;
-  }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .blog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .blog-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; transition: all 0.2s; display: block; text-decoration: none; color: inherit; }
+  .blog-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.04); text-decoration: none; }
+  .blog-card .blog-date { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+  .blog-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; line-height: 1.4; }
+  .blog-card p { font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; margin: 0; }
+  .blog-card .blog-tag { display: inline-block; margin-top: 0.75rem; font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--accent-soft); color: var(--accent); border-radius: 12px; font-weight: 500; }
 
-  .hero-card {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 2.5rem;
-    position: relative; overflow: hidden;
-  }
-  .hero-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--green));
-  }
-  .hero-card .status {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.8rem; color: var(--green); margin-bottom: 1.5rem;
-    font-family: var(--font-mono);
-  }
-  .hero-card .status::before {
-    content: ''; width: 8px; height: 8px; background: var(--green);
-    border-radius: 50%; animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
-  }
-  .hero-card .info-grid {
-    display: grid; gap: 1rem;
-  }
-  .hero-card .info-item label {
-    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px;
-    color: var(--text-dim); font-family: var(--font-mono); display: block;
-    margin-bottom: 0.25rem;
-  }
-  .hero-card .info-item span {
-    font-size: 0.95rem; color: var(--text-bright); font-weight: 500;
-  }
-  .hero-card .tags {
-    display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem;
-  }
-  .tag {
-    font-size: 0.75rem; padding: 0.3rem 0.75rem;
-    background: var(--accent-dim); color: var(--accent);
-    border-radius: 20px; font-family: var(--font-mono);
-  }
+  footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.85rem; color: var(--text-light); }
 
-  /* SECTIONS */
-  section { padding: 5rem 2rem; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent);
-    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-size: 2.2rem; font-weight: 700; color: var(--text-bright);
-    margin-bottom: 1rem;
-  }
-  .section-desc {
-    color: var(--text-dim); font-size: 1rem; max-width: 600px;
-    margin-bottom: 3rem;
-  }
-
-  /* ABOUT */
-  #about { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-  .about-text p { color: var(--text-dim); margin-bottom: 1rem; font-size: 0.95rem; }
-  .about-text p strong { color: var(--text-bright); }
-  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .stat-card {
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: 12px; padding: 1.5rem; text-align: center;
-  }
-  .stat-card .num {
-    font-size: 2rem; font-weight: 700; color: var(--accent);
-    font-family: var(--font-mono);
-  }
-  .stat-card .label {
-    font-size: 0.8rem; color: var(--text-dim); margin-top: 0.25rem;
-  }
-
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-  .skill-card {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 1.75rem;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .skill-card h3 {
-    font-size: 1rem; color: var(--text-bright); margin-bottom: 0.75rem;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .skill-card h3 .icon { font-size: 1.2rem; }
-  .skill-card .items {
-    display: flex; flex-wrap: wrap; gap: 0.4rem;
-  }
-  .skill-card .items span {
-    font-size: 0.75rem; padding: 0.25rem 0.6rem;
-    background: rgba(59,130,246,0.08); color: var(--text-dim);
-    border-radius: 6px; border: 1px solid var(--border);
-    font-family: var(--font-mono);
-  }
-
-  /* PROJECTS */
-  .projects-grid { display: grid; gap: 1.25rem; }
-  .project-card {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 2rem;
-    transition: border-color 0.3s;
-    display: grid; grid-template-columns: auto 1fr; gap: 1.5rem;
-  }
-  .project-card:hover { border-color: var(--accent); }
-  .project-num {
-    font-family: var(--font-mono); font-size: 2rem; font-weight: 700;
-    color: var(--accent-dim); line-height: 1;
-  }
-  .project-card h3 { font-size: 1.05rem; color: var(--text-bright); margin-bottom: 0.5rem; }
-  .project-card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; }
-  .project-card .tech {
-    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem;
-  }
-
-  /* EXPERIENCE TIMELINE */
-  .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 2px; background: var(--border);
-  }
-  .timeline-item { position: relative; margin-bottom: 2.5rem; }
-  .timeline-item::before {
-    content: ''; position: absolute; left: -2rem; top: 0.35rem;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--accent); border: 3px solid var(--bg);
-    transform: translateX(-5px);
-  }
-  .timeline-item .dates {
-    font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent);
-    margin-bottom: 0.25rem;
-  }
-  .timeline-item h3 { font-size: 1.1rem; color: var(--text-bright); margin-bottom: 0.15rem; }
-  .timeline-item .company { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.5rem; }
-  .timeline-item p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
-
-  /* CERTS */
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-  .cert-card {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.25rem;
-    font-size: 0.9rem; color: var(--text);
-    display: flex; align-items: center; gap: 0.75rem;
-    transition: border-color 0.3s;
-  }
-  .cert-card:hover { border-color: var(--accent); }
-  .cert-icon {
-    width: 36px; height: 36px; border-radius: 8px;
-    background: var(--accent-dim); color: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-mono); font-weight: 700; font-size: 0.7rem;
-    flex-shrink: 0;
-  }
-  .cert-card .cert-name { font-weight: 500; }
-  .cert-card .cert-org { font-size: 0.75rem; color: var(--text-dim); }
-  .cert-badge {
-    font-size: 0.65rem; padding: 0.15rem 0.5rem;
-    background: rgba(16,185,129,0.15); color: var(--green);
-    border-radius: 10px; font-family: var(--font-mono);
-    margin-left: auto; flex-shrink: 0;
-  }
-
-  /* CONTACT */
-  #contact {
-    background: var(--bg-card); border-top: 1px solid var(--border);
-  }
-  .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
-  .contact-link {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    color: var(--text); text-decoration: none; font-size: 0.95rem;
-    padding: 0.75rem 1.5rem; border: 1px solid var(--border);
-    border-radius: 10px; transition: all 0.25s;
-  }
-  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* FOOTER */
-  footer {
-    text-align: center; padding: 2rem;
-    font-size: 0.8rem; color: var(--text-dim);
-    border-top: 1px solid var(--border);
-  }
-
-  /* MOBILE */
   @media (max-width: 768px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-text h1 { font-size: 2.2rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .project-card { grid-template-columns: 1fr; }
-    .project-num { font-size: 1.2rem; }
-    nav ul { gap: 1rem; }
-    nav a { font-size: 0.75rem; }
+    .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; padding: 2rem 1.5rem; }
+    .avatar { margin: 0 auto; width: 140px; height: 140px; font-size: 3rem; }
+    .social-links { justify-content: center; }
+    .main-grid { grid-template-columns: 1fr; gap: 2rem; padding: 0 1.5rem 3rem; }
+    .sidebar { position: static; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .hero-info h1 { font-size: 1.8rem; }
   }
-
-  /* FADE IN */
-  .fade-in {
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="logo">tural<span>.pashayev</span></a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#certs">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-title"><a href="#">Tural Pashayev</a></div>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="subtitle">// Senior Cyber Defense Engineer</div>
-      <h1>Tural <span>Pasha</span></h1>
-      <p>I build ML models, SOAR automations, and cloud integrations that scale insider risk detection and remove analyst toil at Fortune 100 volume.</p>
-      <div class="hero-links">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
-      </div>
-    </div>
-    <div class="hero-card">
+  <div class="avatar">TP</div>
+  <div class="hero-info">
+    <h1>Tural Pashayev</h1>
+    <div class="role">Senior Cyber Defense Engineer</div>
+    <div class="company">Nike — Insider Threat</div>
 
-      <div class="info-grid">
-        <div class="info-item">
-          <label>Current Role</label>
-          <span>Sr. Cyber Defense Engineer — Nike</span>
-        </div>
-        <div class="info-item">
-          <label>Focus Areas</label>
-          <span>Insider Threat · Detection Engineering · Security Automation</span>
-        </div>
-        <div class="info-item">
-          <label>Experience</label>
-          <span>7+ years in Cybersecurity</span>
-        </div>
-        <div class="info-item">
-          <label>Education</label>
-          <span>B.S. Engineering Economics — Azerbaijan State Oil University</span>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">XSOAR</span>
-        <span class="tag">Splunk</span>
-        <span class="tag">ML</span>
-        <span class="tag">AWS</span>
-        <span class="tag">Databricks</span>
-        <span class="tag">Snowflake</span>
-      </div>
+    <div class="social-links">
+      <a href="mailto:turalpasha88@gmail.com" title="Email" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+      <a href="https://github.com/turalpashayev" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.3v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/tural-p-a5401450/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.3c-1 0-1.8-.8-1.8-1.7s.8-1.7 1.8-1.7 1.7.8 1.7 1.7-.7 1.7-1.7 1.7zm13.5 12.3h-3v-5.6c0-1.4-.5-2.3-1.8-2.3-1 0-1.6.7-1.8 1.3-.1.2-.1.6-.1.9v5.7h-3v-11h3v1.5c.4-.7 1.2-1.7 2.9-1.7 2.1 0 3.8 1.4 3.8 4.3v6.9z"/></svg>
+      </a>
     </div>
+
+    <p class="hero-bio">
+      Tural Pashayev is a Senior Cyber Defense Engineer at Nike focused on insider threat detection, security automation, and applied machine learning. He builds ML classifiers, frontier-LLM-powered AI agents, and SOAR automations that scale detection and reduce analyst workload across enterprise environments.
+    </p>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="section-label">01 — About</div>
-    <div class="about-grid">
-      <div class="about-text">
-        <h2 class="section-title">Detection engineer who ships code, not slide decks.</h2>
-        <p>I'm a senior cyber defense engineer specializing in <strong>insider threat detection</strong>, <strong>security automation</strong>, and <strong>applied ML for alert triage</strong>. I design and ship the ML models, SOAR integrations, and data pipelines that scale insider risk detection at enterprise volume.</p>
-        <p>I care about <strong>explainable ML</strong> and <strong>detection-as-code</strong>. Analysts and auditors need to trust every disposition, so I pick models and designs you can trace end-to-end, not black boxes.</p>
-        <p>I also led <strong>Python fundamentals training</strong> for multiple teams at Nike, because the best way to scale an automation program is to get more people building.</p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-card">
-          <div class="num">7+</div>
-          <div class="label">Years in Cybersecurity</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">~30%</div>
-          <div class="label">Projected Triage Reduction</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">F100</div>
-          <div class="label">Enterprise Scale</div>
-        </div>
+<div class="main-grid">
+
+  <aside class="sidebar">
+    <div class="sidebar-block">
+      <h3>Interests</h3>
+      <ul>
+        <li>Machine Learning for Security</li>
+        <li>LLMs &amp; AI Agents in SOC</li>
+        <li>Insider Threat Detection</li>
+        <li>Detection Engineering</li>
+        <li>Statistics &amp; Anomaly Detection</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <h3>Education</h3>
+      <div class="edu-item">
+        <span class="edu-degree">B.S. Engineering Economics and Management</span>
+        <span class="edu-school">Azerbaijan State Oil and Industry University</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="section-label">02 — Skills</div>
-    <h2 class="section-title">Core Competencies</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3><span class="icon">🛡</span> Detection & Response</h3>
-        <div class="items">
-          <span>Splunk</span><span>XSOAR</span><span>DLP</span><span>NDLP</span>
-          <span>SIEM</span><span>SOAR</span><span>UEBA</span><span>MITRE ATT&CK</span>
-          <span>Insider Threat</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3><span class="icon">⚙</span> Engineering & Automation</h3>
-        <div class="items">
-          <span>Python</span><span>SQL</span><span>PL/SQL</span><span>Java</span>
-          <span>AWS Lambda</span><span>REST APIs</span><span>Detection-as-Code</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3><span class="icon">🧠</span> ML & Data Science</h3>
-        <div class="items">
-          <span>Decision Trees</span><span>Classification</span><span>Anomaly Detection</span>
-          <span>Statistical Analysis</span><span>scikit-learn</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3><span class="icon">☁</span> Cloud & Data Platforms</h3>
-        <div class="items">
-          <span>AWS</span><span>Databricks</span><span>Snowflake</span>
-          <span>BigQuery</span><span>Hex</span><span>Jupyter</span>
-          <span>PostgreSQL</span><span>Oracle</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3><span class="icon">🔓</span> Offensive Security</h3>
-        <div class="items">
-          <span>Nmap</span><span>Burp Suite</span><span>Metasploit</span>
-          <span>Nessus</span><span>Hashcat</span><span>Kali Linux</span>
-        </div>
-      </div>
+    <div class="sidebar-block">
+      <h3>Certifications</h3>
+      <ul>
+        <li>CISSP</li>
+        <li>CEH</li>
+        <li>CHFI</li>
+        <li>eJPT</li>
+        <li>CCFE</li>
+        <li>AWS Cloud Practitioner</li>
+        <li>Stanford ML / DeepLearning.AI</li>
+      </ul>
     </div>
-  </div>
-</section>
+  </aside>
 
-<!-- PROJECTS -->
-<section id="projects" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-label">03 — Projects</div>
-    <h2 class="section-title">Key Projects at Nike</h2>
-    <p class="section-desc">Insider threat detection engineering and automation work shipped at Fortune 100 scale.</p>
-    <div class="projects-grid">
-      <div class="project-card fade-in">
-        <div class="project-num">01</div>
-        <div>
-          <h3>DLP Alert Auto-Triage — ML Classifier + XSOAR</h3>
-          <p>Designed, trained, and productionized a binary Decision Tree classifier on historical DLP alert data to distinguish benign activity from true positives. Deployed on Databricks with a custom XSOAR integration that scores alerts at ingestion, auto-closes benign events, and routes threats to analysts. Projected to reduce triage volume by ~30%.</p>
-          <div class="tech">
-            <span class="tag">Python</span><span class="tag">scikit-learn</span>
-            <span class="tag">Databricks</span><span class="tag">XSOAR</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-num">02</div>
-        <div>
-          <h3>USB Whitelist Sync — AWS Lambda + ServiceNow → DLP</h3>
-          <p>Built an AWS Lambda function that pulls approved device serial numbers from ServiceNow and syncs them to the DLP tool's whitelist, suppressing false-positive alerts for pre-approved USB devices and eliminating a recurring source of analyst toil.</p>
-          <div class="tech">
-            <span class="tag">AWS Lambda</span><span class="tag">ServiceNow</span>
-            <span class="tag">Python</span><span class="tag">DLP</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-num">03</div>
-        <div>
-          <h3>Slack Egress Auto-Close with Fuzzy Matching</h3>
-          <p>Designed a Python-based XSOAR automation that correlates Slack egress alerts against secondary data sources and auto-closes confirmed matches. Used a string-similarity library instead of hard-coded comparison to tolerate minor filename drift.</p>
-          <div class="tech">
-            <span class="tag">Python</span><span class="tag">XSOAR</span>
-            <span class="tag">Fuzzy Matching</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-num">04</div>
-        <div>
-          <h3>Sensitive Data Policy Notification Automation</h3>
-          <p>Built an automation that parses DLP deletion events and sends targeted policy-violation notification emails to users, closing the loop between detection and user education without analyst involvement.</p>
-          <div class="tech">
-            <span class="tag">Python</span><span class="tag">XSOAR</span>
-            <span class="tag">DLP</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-num">05</div>
-        <div>
-          <h3>Analyst QA Review Automation</h3>
-          <p>Designed a dedicated QA review tab and layout in XSOAR with an automation that randomly samples analyst tickets for peer review, auto-populating quality metrics. Delivered a repeatable, bias-free QA program with zero manual overhead.</p>
-          <div class="tech">
-            <span class="tag">XSOAR</span><span class="tag">Python</span>
-            <span class="tag">Analytics</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-num">06</div>
-        <div>
-          <h3>SIEM & SOAR Tool Migration</h3>
-          <p>Key contributor on multiple platform migration projects across Splunk and XSOAR — rewrote automation scripts, redesigned playbooks, and rebuilt incident enrichment to preserve detection capability across tool transitions.</p>
-          <div class="tech">
-            <span class="tag">Splunk</span><span class="tag">XSOAR</span>
-            <span class="tag">Python</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <div class="content">
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <div class="section-label">04 — Experience</div>
-    <h2 class="section-title">Career Timeline</h2>
-    <div class="timeline">
-      <div class="timeline-item fade-in">
-        <div class="dates">Aug 2021 — Present</div>
-        <h3>Sr. Cyber Defense Engineer — Insider Threat</h3>
-        <div class="company">Nike (Remote)</div>
-        <p>Own detection engineering, ML-based triage automation, and SOAR integrations for Nike's insider threat program. Ship Python/SQL detection logic, build cloud integrations (AWS Lambda, Databricks), and lead Python training across teams.</p>
-      </div>
-      <div class="timeline-item fade-in">
-        <div class="dates">Feb 2020 — Jul 2021</div>
-        <h3>Cyber Security Analyst</h3>
-        <div class="company">Cisco — San Jose, CA</div>
-        <p>Triaged and investigated SIEM alerts across network, endpoint, and phishing vectors. Performed root-cause analysis, coordinated incident response, and integrated threat intelligence into detection workflows.</p>
-      </div>
-      <div class="timeline-item fade-in">
-        <div class="dates">Nov 2017 — Dec 2019</div>
-        <h3>Data Security Analyst</h3>
-        <div class="company">Ampco Pittsburgh — Pittsburgh, PA</div>
-        <p>Built automated log ingestion pipelines using cron-scheduled Python jobs to land security logs into Snowflake. Designed Tableau dashboards for security and operational analytics.</p>
-      </div>
-      <div class="timeline-item fade-in">
-        <div class="dates">Dec 2010 — Sep 2017</div>
-        <h3>Earlier Career</h3>
-        <div class="company">Bakcell LTD & Kiber LTD — Baku, Azerbaijan</div>
-        <p>System Application Analyst (Oracle EBS, PL/SQL) and Software Developer (Java trading systems). Engineering foundation across full SDLC, database development, and enterprise application support.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="about">
+      <h2><span class="emoji">📖</span> About</h2>
+      <p>
+        My work sits at the intersection of <strong>machine learning, statistics, and cybersecurity</strong>. I've spent the past several years pulling these three fields closer together — moving from detection engineering, to supervised ML for alert triage, to building frontier-LLM-powered AI agents for incident response. Each step has reinforced the same conviction: the future of defense isn't going to be written in detection rules alone, it's going to be written in models.
+      </p>
+      <p>
+        What makes this moment urgent is the asymmetry between attackers and defenders. <strong>LLMs have changed the speed and sophistication of offense.</strong> Phishing is now hyper-personalized, social engineering scales infinitely, and reconnaissance happens at machine speed. The old assumption — that defenders have time to investigate because attackers move slowly — is gone. The only viable response is to meet machine-speed attacks with machine-speed defense: AI agents that triage, investigate, and act in seconds, not hours.
+      </p>
+      <p>
+        I'm especially interested in applying AI, LLMs, and ML to the <strong>Security Operations Center (SOC)</strong>. SOCs sit at the front line of enterprise defense, drowning in alerts, repetitive triage, and false positives. They are also the layer of the security stack where AI delivers the most leverage — by classifying alerts, summarizing incident context, recommending analyst actions, and freeing humans for the investigations that actually require judgment. At Nike, I've built and shipped exactly this kind of tooling: a Decision Tree classifier that reduced manual DLP triage by ~30%, an LLM-based data labeling pipeline that eliminated manual annotation, and an AI agent that retrieves historical incident context and recommends next actions in real time.
+      </p>
+      <p>
+        I write here about what I learn building these systems — what works in production, what doesn't, and where applied ML in cybersecurity is going next.
+      </p>
+    </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certs" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-label">05 — Certifications</div>
-    <h2 class="section-title">Credentials & Training</h2>
-    <div class="certs-grid">
-      <div class="cert-card">
-        <div class="cert-icon">C²</div>
-        <div><div class="cert-name">CISSP</div><div class="cert-org">(ISC)²</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">CEH</div>
-        <div><div class="cert-name">Certified Ethical Hacker</div><div class="cert-org">EC-Council</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">CHFI</div>
-        <div><div class="cert-name">Computer Hacking Forensic Investigator</div><div class="cert-org">EC-Council</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">eJPT</div>
-        <div><div class="cert-name">Junior Penetration Tester</div><div class="cert-org">eLearnSecurity</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">CCFE</div>
-        <div><div class="cert-name">Certified Computer Forensics Examiner</div><div class="cert-org">IACRB</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">AWS</div>
-        <div><div class="cert-name">Cloud Practitioner</div><div class="cert-org">Amazon Web Services</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">ML</div>
-        <div><div class="cert-name">Machine Learning</div><div class="cert-org">Stanford / DeepLearning.AI</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">G</div>
-        <div><div class="cert-name">Statistics & Regression Analysis</div><div class="cert-org">Google</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="posts">
+      <h2><span class="emoji">📝</span> Recent Posts</h2>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-label">06 — Contact</div>
-    <h2 class="section-title">Let's connect.</h2>
-    <p class="section-desc">I'm open to Senior and Staff-level Detection Engineering, Security Engineering, and Insider Threat Engineering roles. Always happy to connect with fellow builders.</p>
-    <div class="contact-links">
-      <a href="mailto:turalpasha88@gmail.com" class="contact-link">✉ turalpasha88@gmail.com</a>
+      <div class="blog-grid">
 
-      <a href="https://www.linkedin.com/in/tural-p-a5401450/" class="contact-link">💼 LinkedIn</a>
-      <a href="https://github.com/turalpashayev" class="contact-link">🔗 GitHub</a>
-    </div>
+        <article class="blog-card">
+          <div class="blog-date">Coming Soon</div>
+          <h3>Why I Picked a Decision Tree for DLP Alert Triage</h3>
+          <p>The most powerful model isn't always the right one. Why explainability mattered more than accuracy on the project that cut our manual triage by ~30%.</p>
+          <span class="blog-tag">ML for Security</span>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-date">Coming Soon</div>
+          <h3>Using LLMs to Label Security Data at Scale</h3>
+          <p>Manual labeling is the bottleneck that kills most ML-in-security projects before they start. Here's how frontier LLMs change the math.</p>
+          <span class="blog-tag">LLM + Cybersecurity</span>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-date">Coming Soon</div>
+          <h3>Building an AI Agent for SOC Triage</h3>
+          <p>What I learned designing an LLM-powered agent that retrieves historical incidents, summarizes resolutions, and recommends actions to analysts.</p>
+          <span class="blog-tag">AI Agents</span>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-date">Coming Soon</div>
+          <h3>Machine-Speed Defense for Machine-Speed Attacks</h3>
+          <p>LLMs gave attackers hyper-personalized phishing and machine-speed reconnaissance. The defense has to catch up — and it's not going to be more humans.</p>
+          <span class="blog-tag">AI Safety</span>
+        </article>
+
+      </div>
+    </section>
+
   </div>
-</section>
+</div>
 
 <footer>
-  <p>&copy; 2026 Tural Pasha. Built with intention.</p>
+  <p>&copy; 2026 Tural Pashayev. Built with intention.</p>
 </footer>
-
-<script>
-  // Fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Smooth scroll for nav links
-  document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-</script>
 
 </body>
 </html>
